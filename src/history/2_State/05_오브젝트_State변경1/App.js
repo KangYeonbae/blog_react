@@ -43,16 +43,11 @@ function App() {
                   // 기존 전체 State를 갱신하는것이 아니라, 필요한 요소만 갱신 하려고 시도,
                   // 하지만 State는 변경이 되지 않음
                   // state의 갱신은 state 주소가 갱신될 때 일어난다.
-                  // posts[0] = '여자코트 추천'
-                  // setPosts(posts)}}> 제목수정 테스트 </button>
+                  posts[0] = '여자코트 추천'
+                  setPosts(posts)}}> 제목수정 테스트 </button>
               {/*인라인 속성을 적용할때에는 {{}} 구조를 사용한다.
           스타일의 속성을 객체로 표현한다.
           속성명에 - 가들어갈경우에는 카멜표기법으로 명시한다. ex font-sixe > fontSize*/}
-                  let posts_update = [...posts]
-                      posts_update[0]='여자코트추천'
-                          setPosts(posts_update)}
-              }> 제목수정테스트
-                  </button>
               <h4 style={{color: 'red', fontSize: "large"}}>
                   {/*치환할 값은 {} 사용*/}
                   {posts[0]}

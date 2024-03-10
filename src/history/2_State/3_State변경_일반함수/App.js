@@ -21,12 +21,12 @@ function App() {
           let [post, postChange] = useState('명동 우동 맛집')
           상태 변경함수를 사용하지 않으면 생략도 가능하다.
      */
-    let [posts, setPosts] = useState(['남자코트 추천', '우동맛집', '강남우동맛집'])
+    let [post] = useState(['명동 우동 맛집', '우동맛집', '강남우동맛집'])
     let [likes, setLikes] = useState(0)
 
-    // function changeLikes(){
-    //     setLikes(likes+1)
-    // }
+    function changeLikes(){
+        setLikes(likes+1)
+    }
   return (
       //JSX(Javas
       <div className="App">
@@ -37,26 +37,13 @@ function App() {
               </h4>
           </div>
           <div className="list">
-              {/* 세개의 state가 리스트로 있기 때문에 문법에 맞지않음.
-              <button conClick = {()=>{ setPosts('여자코트추천)}}>*/}
-              <button onClick={ () => {
-                  // 기존 전체 State를 갱신하는것이 아니라, 필요한 요소만 갱신 하려고 시도,
-                  // 하지만 State는 변경이 되지 않음
-                  // state의 갱신은 state 주소가 갱신될 때 일어난다.
-                  // posts[0] = '여자코트 추천'
-                  // setPosts(posts)}}> 제목수정 테스트 </button>
               {/*인라인 속성을 적용할때에는 {{}} 구조를 사용한다.
           스타일의 속성을 객체로 표현한다.
           속성명에 - 가들어갈경우에는 카멜표기법으로 명시한다. ex font-sixe > fontSize*/}
-                  let posts_update = [...posts]
-                      posts_update[0]='여자코트추천'
-                          setPosts(posts_update)}
-              }> 제목수정테스트
-                  </button>
               <h4 style={{color: 'red', fontSize: "large"}}>
                   {/*치환할 값은 {} 사용*/}
-                  {posts[0]}
-                  <span onClick={ ()=>{ setLikes(likes+1)} }>👍</span>{likes}
+                  {post[0]}
+                  <span onClick={changeLikes}>👍</span>{likes}
               </h4>
               <p>3월 10일 발행</p>
           </div>
@@ -66,7 +53,7 @@ function App() {
           속성명에 - 가들어갈경우에는 카멜표기법으로 명시한다. ex font-sixe > fontSize*/}
               <h4 style={{color: 'red', fontSize: "large"}}>
                   {/*치환할 값은 {} 사용*/}
-                  {posts[1]}
+                  {post[1]}
               </h4>
               <p>3월 10일 발행</p>
           </div>
@@ -76,7 +63,7 @@ function App() {
           속성명에 - 가들어갈경우에는 카멜표기법으로 명시한다. ex font-sixe > fontSize*/}
               <h4 style={{color: 'red', fontSize: "large"}}>
                   {/*치환할 값은 {} 사용*/}
-                  {posts[2]}
+                  {post[2]}
               </h4>
               <p>3월 10일 발행</p>
           </div>
