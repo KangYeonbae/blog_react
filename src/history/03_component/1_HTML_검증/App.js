@@ -1,23 +1,34 @@
 //모달창 생성 : 사용자가 기존컨테츠에서 부가내용을 설명하기 위한 상호작용을
 // 표현사기 위해 동적으로 생성한 컴포넌트
-
-// * 컴포넌트 만드는 법
-// 1. function 만들고
-// return () 안에 html 담기
-// 사용하는 곳에서는 <함수명> </함수명> 또는 <함수명/> 쓰기
-// * 언제 컴포넌트를 사용하면 좋을까요?
-//  - 반복적인 HTML 요소를 재사용할 경우
-//  - 큰 페이지
-//  - 자주 변경되는 요소
-
 import './App.css';
 import {useState} from "react";
 
 function App() {
 
+
+    /*
+       기존변수를 사용한 방식
+       let post ='강남우동맛집'
+       State를 사용한 방식
+       -사용방법
+       1.import {useState} from "react"
+       2. let [state명, state 변경을 도와주는 함수명] = userState('[보관할자료]')
+       state 변경을 도와주는 함수명은 추후에 알아보자
+
+       State 를 변경하게 되면 State 변경 함수와 함께
+        Html 화면 갱신이 일어나도록 설계되어져있다.
+        결론 : 동적으로 자주 변경 될 것 같은 html 요소는 State로 만들자!
+
+
+          let [post, postChange] = useState('명동 우동 맛집')
+          상태 변경함수를 사용하지 않으면 생략도 가능하다.
+     */
     let [posts, setPosts] = useState(['남자코트 추천', '우동맛집', '강남우동맛집'])
     let [likes, setLikes] = useState(0)
 
+    // function changeLikes(){
+    //     setLikes(likes+1)
+    // }
   return (
       //JSX(Javas
       <div className="App">
@@ -71,22 +82,14 @@ function App() {
               </h4>
               <p>3월 10일 발행</p>
           </div>
-      {/*    게시글의 상세내용에 대한 모달창  */}
-          <MyModal/>
+      {/*    게시글의 상세내용에 대한 모달창을 설계 */}
+          <div className="modal">
+              <h4> 제목 </h4>
+              <p> 날짜 </p>
+              <p> 상세내용 </p>
+          </div>
       </div>
   );
 }
-
-function MyModal () {
-          return(
-          <div className="modal">
-          <h4> 제목 </h4>
-          <p> 날짜 </p>
-          <p> 상세내용 </p>
-          </div>
-
-          )
-      }
-
 
 export default App;
